@@ -76,6 +76,15 @@ It is currently considered experimental.
 
 ---
 
+## Resources
+
+Found some interesting Mondrian toys!
+
+* [makemeamondrian.com](https://makemeamondrian.com/)
+* [Figma Community Plugin](https://www.figma.com/community/plugin/1246140262448004218/mondrian-grid)
+* [getmondrian.com](https://getmondrian.com)
+  * [On Github](https://github.com/TimMikeladze/getmondrian)
+
 ## License
 
 Unless otherwise noted, this theme is licensed under CC BY-SA 4.0.
