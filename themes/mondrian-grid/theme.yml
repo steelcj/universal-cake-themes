@@ -1,0 +1,29 @@
+dc:identifier: "mondrian-grid"
+dc:title: "Mondrian Grid"
+dc:creator: "Christopher Steel"
+dc:type: "InteractiveResource"
+dc:format: "text/html"
+
+dc:subject:
+  - "CSS Grid"
+  - "Responsive design"
+  - "Accessibility"
+  - "Structural clarity"
+  - "Geometric segmentation"
+  - "De Stijl"
+
+dc:description: >
+  An experimental grid-based web theme inspired by Piet Mondrian and
+  the De Stijl movement. Uses asymmetrical CSS Grid segmentation and
+  primary color blocks to express structural clarity and interdependent
+  composition. Fully responsive and JavaScript-free.
+
+dc:source: "Inspired by the work of Piet Mondrian and the De Stijl movement"
+
+dc:relation: "Part of the UniversalCake Themes repository"
+
+dc:rights: "CC BY-SA 4.0"
+
+
+
+

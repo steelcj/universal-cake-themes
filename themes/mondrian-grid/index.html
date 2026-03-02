@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inclusive Gym — Structured Solidarity</title>
+
+<style>
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --red:   #c00018;
+  --blue:  #003f8c;
+  --yellow:#e0b800;
+
+  --line: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--black);
+  color: var(--white);
+}
+
+.grid {
+  display: grid;
+  min-height: 100vh;
+  gap: var(--line);
+  padding: var(--line);
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--black);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+}
+
+.block h2 { margin-top: 0; }
+
+.block a {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: inherit;
+}
+
+.block a:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 4px;
+}
+
+/* ===== Reassigned Colors ===== */
+.red    { background: var(--white); color: #000; }
+.yellow { background: var(--red); color: #fff; }
+.white  { background: var(--yellow); color: #000; }
+.blue   { background: var(--blue); color: #fff; }
+
+/* ===== Desktop Layout ===== */
+.home     { grid-column: span 3; grid-row: span 2; }
+.projects { grid-column: span 1; grid-row: span 3; }
+.articles { grid-column: span 2; grid-row: span 2; }
+.about    { grid-column: span 1; }
+.contact  { grid-column: span 2; }
+
+/* ===== PAD VIEW (Tablet) ===== */
+@media (max-width: 1024px) and (min-width: 601px) {
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .projects,
+  .articles {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .about,
+  .contact {
+    grid-column: span 1;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .block {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<main class="grid">
+
+<section class="block red home">
+<h2>Community</h2>
+<p>Strength built through solidarity and accessibility.</p>
+<a href="#">Join Us</a>
+</section>
+
+<section class="block blue projects">
+<h2>Programs</h2>
+<p>Adaptive training rooted in inclusion and resilience.</p>
+<a href="#">Explore</a>
+</section>
+
+<section class="block yellow articles">
+<h2>Access</h2>
+<p>Designed with sensory, mobility, and neurodivergent needs in mind.</p>
+<a href="#">Learn More</a>
+</section>
+
+<section class="block white about">
+<h2>Values</h2>
+<p>Disability pride, queer affirmation, and collective strength.</p>
+<a href="#">Our Philosophy</a>
+</section>
+
+<section class="block red contact">
+<h2>Contact</h2>
+<p>Reach out and build something strong together.</p>
+<a href="#">Get in Touch</a>
+</section>
+
+</main>
+</body>
+</html>
