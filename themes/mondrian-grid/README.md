@@ -6,6 +6,20 @@ This theme explores structural clarity through asymmetrical block composition, p
 
 ---
 
+## Responsive Views
+
+### Desktop
+
+![](./assets/images/mondrian-grid-desktop.png)
+
+### Tablet
+
+![](./assets/images/mondrian-grid-tablet.png)
+
+### Mobile
+
+![](./assets/images/mondrian-grid-mobile.png)
+
 ## Design Intent
 
 The Mondrian Grid theme strives for:
