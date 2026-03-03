@@ -1,0 +1,9 @@
+name: stijl-standard
+version: 0.1.0
+description: "Responsive De Stijl-inspired grid theme (standard edition)."
+author: "Christopher Steel"
+homepage: "https://universalcake.com"
+docs_dir: docs
+static_templates: []
+include_search_page: false
+search_index_only: false

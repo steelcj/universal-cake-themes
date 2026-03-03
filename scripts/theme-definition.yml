@@ -1,0 +1,12 @@
+theme:
+  name: "stijl-civic"
+  description: "A civic-focused De Stijl theme"
+  author: "Christopher Steel"
+
+structure:
+  - README.md
+  - index.html
+  - theme.yml
+  - assets/css/
+  - assets/images/
+  - assets/fonts/

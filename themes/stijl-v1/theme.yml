@@ -1,0 +1,9 @@
+name: stijl-v1
+version: 0.1.0
+description: "Responsive De Stijl-inspired grid layout (v1 foundation)."
+author: "Christopher Steel"
+homepage: "https://universalcake.com"
+docs_dir: docs
+static_templates: []
+include_search_page: false
+search_index_only: false

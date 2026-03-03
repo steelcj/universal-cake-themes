@@ -8,7 +8,11 @@ All themes live inside:
 themes/
 ```
 
-## Theme Directories
+## Documentation
+
+* [universalcake-theme-metadata-guide.md](./universalcake-theme-metadata-guide.md)
+
+Theme Directories
 
 Each theme directory is in a theme named directory. This is self-contained and includes all of the information required in order to understand and used the theme. So documentation, assets, and metadata and all other requirements.
 

@@ -16,6 +16,12 @@ It is a design laboratory focused on:
 
 Each theme is a self-contained exploration of layout, visual language, and semantic structure.
 
+## Contributing Themes
+
+* [/docs/universalcake-theme-contribution-guide.md](./docs/universalcake-theme-contribution-guide.md)
+
+## 
+
 ---
 
 ## File system layout
@@ -64,17 +70,17 @@ UniversalCake themes aim to prioritize:
 
 ---
 
-## Repository Structure
+## universalcake-theme-metadata-guide.mdRepository Structure
 
 All themes live inside:
 
-```
+```bash
 themes/
 ```
 
 Each theme directory contains everything required to understand and run that theme, typically including:
 
-```
+```bash
 README.md
 index.html
 theme.yml
@@ -82,11 +88,66 @@ css/
 assets/
 ```
 
-The `theme.yml` file provides structured metadata using Dublin Core.
+## Generating a Theme Skeleton
 
-This allows themes to remain portable, discoverable, and compatible with future UniversalCake systems.
+You can create a theme skeleton by running `generate-theme-skeleton.py` from the project root.
+
+By default, the script loads:
+
+```
+scripts/theme-definition.yml
+```
+
+### Basic Usage
+
+```bash
+python3 scripts/generate-theme-skeleton.py
+```
+
+This will generate a theme using the values defined in `scripts/theme-definition.yml`.
 
 ---
+
+### Overriding Theme Metadata
+
+You may override the theme name and creator at runtime:
+
+Create a new theme directory called **stijl-civic**
+
+```bash
+python3 scripts/generate-theme-skeleton.py \
+  --theme-name stijl-civic 
+```
+
+Create a new theme directory called **stijl-civic** by creator **Christopher Steel**
+
+```bash
+python3 scripts/generate-theme-skeleton.py \
+  --theme-name stijl-civic \
+  --theme-creator "Christopher Steel"
+```
+
+This allows you to reuse the same YAML structure definition while customizing identity fields.
+
+---
+
+### Optional: Custom YAML File
+
+If you are going to create a number of themes you can specify a custom YAML definition file:
+
+```bash
+python3 scripts/generate-theme-skeleton.py --yaml path/to/another-definition.yml
+```
+
+The script will generate the theme inside:
+
+```
+themes/<theme-name>/
+```
+
+* All paths generated are OS agnostic and work across Linux, macOS, and Windows.
+* The `theme.yml` file provides structured metadata using Dublin Core.
+* This allows themes to remain portable, discoverable, and compatible with future UniversalCake systems.
 
 ## What This Repository Is Not
 
