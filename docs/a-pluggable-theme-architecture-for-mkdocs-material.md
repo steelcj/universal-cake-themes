@@ -1,0 +1,301 @@
+# A Pluggable Theme Architecture for MkDocs Material
+
+This document defines a disciplined, production-safe approach for converting visual mockup themes into robust, upgrade-safe MkDocs Material implementations.
+
+Rather than forking or rewriting Material, this architecture treats themes as **pluggable identity layers** that attach cleanly to the Material engine.
+
+The goal is to create themes that are:
+
+- Production-ready
+- Upgrade-safe
+- Variant-capable (AA / AAA / etc.)
+- Compatible with mkdocs-static-i18n
+- Modular and composable
+- Future-proof
+- Aligned with a layered architectural approach
+
+Material remains the engine.  
+Your theme becomes a controlled, replaceable design layer.
+
+---
+
+# Core Principle
+
+A pluggable theme must be:
+
+1. **Self-contained**
+2. **Namespaced**
+3. **Non-invasive**
+4. **Layered**
+5. **Engine-respecting**
+
+We do not replace Material.
+
+We extend it.
+
+---
+
+# Basic Structure
+
+Each theme lives entirely inside its own override root:
+
+```bash
+overrides/<theme-name>/
+```
+
+Example:
+
+```bash
+overrides/stijl-standard-mkdocs/
+```
+
+Configured in `mkdocs.yml` as:
+
+```yaml
+theme:
+  name: material
+  custom_dir: overrides/stijl-standard-mkdocs
+```
+
+This makes the theme portable and pluggable.
+
+Switching themes becomes a configuration change, not a structural rewrite.
+
+---
+
+# Recommended Directory Layout
+
+It is highly unlikely that you will need all of this, this is to illustrate locations and organizational approaches...
+
+```
+overrides/
+└── stijl-standard-mkdocs/
+    ├── assets/
+    │   ├── css/
+    │   │   ├── tokens/
+    │   │   │   ├── uc-base.css
+    │   │   │   ├── uc-aa.css
+    │   │   │   └── uc-aaa.css
+    │   │   ├── layout/
+    │   │   │   └── stijl-standard.css
+    │   │   ├── components/
+    │   │   │   ├── blocks.css
+    │   │   │   ├── cards.css
+    │   │   │   └── utilities.css
+    │   │   └── overrides.css
+    │   │
+    │   ├── js/
+    │   │   ├── interactions.js
+    │   │   └── progressive-enhancement.js
+    │   │
+    │   ├── images/
+    │   │   ├── logos/
+    │   │   ├── icons/
+    │   │   └── backgrounds/
+    │   │
+    │   └── fonts/
+    │
+    ├── partials/
+    │   ├── homepage.html
+    │   ├── hero.html
+    │   └── callout-grid.html
+    │
+    ├── macros/
+    │   └── blocks.html
+    │
+    ├── main.html        (minimal extension only, if required)
+    └── README.md
+```
+
+---
+
+# Why This Works
+
+## Fully Namespaced
+
+- All assets are isolated.
+- The theme is portable.
+- Variants (AA / AAA) can duplicate safely.
+- No global collision risk.
+
+---
+
+## CSS Is Intentionally Layered
+
+First a reality check
+
+>  Yes, it is layers, but this does not mean you need to do this right away, or ever in fact. If it helps (being able to easily find and change colors, font's or what have you, then yes, do it. If it is something that will not be helpful until the n'th iteration, if that is reached, then wait until then. Make it work, make it right, make it fast, in that order.
+
+### Tokens
+
+Define:
+
+- Color system
+- Spacing
+- Design variables
+- Accessibility overlays
+
+No layout logic here.
+
+---
+
+### Layout
+
+Defines:
+
+- Scoped grid systems
+- Breakpoints
+- Theme-specific containers
+
+Must never override Material’s core layout containers.
+
+​	Chris is not sure about the above...
+
+---
+
+### Components
+
+Defines:
+
+- Cards
+- Blocks
+- Utilities
+- Section styling
+
+Enhancement only — not structural replacement.
+
+---
+
+### overrides.css
+
+Reserved for:
+
+- Minor patches
+- Small refinements
+- Controlled adjustments
+
+Never used for layout rewrites.
+
+---
+
+# Template Strategy
+
+## Partials
+
+Create partials only when needed.
+
+Safe examples:
+
+- `homepage.html`
+- `hero.html`
+- Grid sections
+
+Avoid overriding core Material templates unless you accept long-term maintenance:
+
+```
+partials/header.html
+partials/nav.html
+partials/search.html
+partials/language.html
+partials/sidebar.html
+```
+
+Override these only with intent.
+
+---
+
+## main.html (Minimal Only)
+
+If required:
+
+```jinja
+{% extends "base.html" %}
+
+{% block content %}
+  {{ super() }}
+{% endblock %}
+```
+
+Never:
+
+- Replace navigation rendering
+- Modify drawer logic
+- Override search integration
+- Rewrite structural containers
+
+---
+
+# JavaScript Discipline
+
+Material already provides robust JS.
+
+If adding custom JS:
+
+- Keep it progressive
+- Avoid modifying layout engine
+- Avoid touching navigation
+- Avoid interfering with search
+
+Enhance — do not replace.
+
+---
+
+# mkdocs.yml Integration
+
+```yaml
+theme:
+  name: material
+  custom_dir: overrides/stijl-standard-mkdocs
+
+extra_css:
+  - assets/css/tokens/uc-base.css
+  - assets/css/layout/stijl-standard.css
+  - assets/css/components/blocks.css
+
+extra_javascript:
+  - assets/js/interactions.js
+```
+
+Only reference files that exist.
+
+---
+
+# Compatibility with mkdocs-static-i18n
+
+This architecture remains compatible because:
+
+- Navigation is not overridden
+- Language switching is not hardcoded
+- URLs remain generated by Material
+- No template-level language logic is duplicated
+
+i18n remains handled by the engine.
+
+---
+
+# What This Architecture Enables
+
+- Pluggable theme switching
+- Accessibility overlays
+- Scoped grid systems
+- Component-level theming
+- Homepage customization
+- Clean migration path
+- Long-term upgrade safety
+
+Without:
+
+- Forking Material
+- Breaking upgrades
+- Entangling navigation logic
+- Creating hidden coupling
+- Accumulating theme entropy
+
+---
+
+# Final Principle
+
+Material is the engine.  
+Your theme is a pluggable identity layer.
+
+Clear boundaries prevent technical debt.
