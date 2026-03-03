@@ -38,11 +38,12 @@ universal-cake-themes/
 │   ├── calm-editorial-v2/
 │   ├── minimal-structured/
 │   └── experimental-grid/
-├── tools/
-│   └── verify-theme.sh
+├── scripts/
+│   ├── generate-theme-skeleton.py
+│   └── theme-definition.yml
+├── tools/                # todo
+│   └── verify-theme.sh   # todo
 ```
-
-# UniversalCake Themes
 
 ## Philosophy
 
@@ -58,7 +59,7 @@ The goal is durable expression and utility.
 
 ---
 
-## Core Values
+## Core Values -< move to VALUES.md
 
 UniversalCake themes aim to prioritize:
 
