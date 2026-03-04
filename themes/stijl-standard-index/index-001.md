@@ -1,0 +1,209 @@
+---
+hide:
+  - toc
+  - navigation
+  - title
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inclusive Gym — De Stijl Composition</title>
+
+<style>
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --red:   #c00018;
+  --blue:  #003f8c;
+  --yellow:#e0b800;
+
+  --line: 10px;
+}
+
+* { box-sizing: border-box; }
+
+/* Remove MkDocs spacing around content */
+
+.md-grid {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.md-main__inner {
+  margin: 0 !important;
+}
+
+.md-content {
+  margin: 0 !important;
+}
+
+.md-content__inner {
+  padding: 0 !important;
+}
+
+/* -----------------------------------------
+   Hides auto page title
+   ----------------------------------------- */
+.md-content__inner > h1:first-child {
+  display: none;
+}
+
+
+/* ===== Grid Canvas ===== */
+
+.grid {
+  display: grid;
+
+  /* Let MkDocs control page height */
+  height: 100%;
+
+  gap: var(--line);
+  padding: var(--line);
+
+  grid-template-columns: repeat(4, 1fr);
+
+  /* De Stijl row rhythm */
+  grid-auto-rows: minmax(150px, 1fr);
+
+  background: var(--black);
+}
+
+/* ===== Blocks ===== */
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 1.75rem;
+
+  min-height: 0;
+}
+
+.block h2 { margin-top: 0; }
+
+.block a {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: inherit;
+}
+
+.block a:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 4px;
+}
+
+/* ===== Colors ===== */
+
+.red    { background: var(--white); color: #000; }
+.yellow { background: var(--red); color: #fff; }
+.white  { background: var(--yellow); color: #000; }
+.blue   { background: var(--blue); color: #fff; }
+
+/* ===== Desktop Mondrian Layout ===== */
+
+.projects {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.areas {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.resources {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.archives {
+  grid-column: span 1;
+}
+
+.contact {
+  grid-column: span 2;
+}
+
+/* ===== Tablet ===== */
+
+@media (max-width: 1024px) {
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects {
+    grid-column: span 2;
+  }
+
+  .areas,
+  .resources {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .archives,
+  .contact {
+    grid-column: span 1;
+  }
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 600px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .block {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<main class="grid">
+
+<section class="block red projects">
+<h2>Projects</h2>
+<p>Current projects we are working on.</p>
+<a href="#">Join Us</a>
+</section>
+
+<section class="block blue areas">
+<h2>Areas</h2>
+<p>Areas of ongoing responsibility and attention.</p>
+<a href="#">Explore</a>
+</section>
+
+<section class="block yellow resources">
+<h2>Resources</h2>
+<p>Reference materials, research, and useful information.</p>
+<a href="#">Learn More</a>
+</section>
+
+<section class="block white archives">
+<h2>Archives</h2>
+<p>Completed or inactive work kept for reference.</p>
+<a href="#">Our Philosophy</a>
+</section>
+
+<section class="block red contact">
+<h2>About Us</h2>
+<p>Information about who we are and what we do.</p>
+<a href="#">Get in Touch</a>
+</section>
+
+</main>
+
+</body>
+</html>

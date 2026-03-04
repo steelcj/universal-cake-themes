@@ -1,0 +1,1 @@
+{"config":{"lang":["en","fr"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Homes","text":"Projects   Areas   Resources   About"},{"location":"about/","title":"About","text":""},{"location":"fr/","title":"French","text":""},{"location":"fr/a_propos/","title":"French About","text":""}]}

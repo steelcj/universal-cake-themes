@@ -1,0 +1,178 @@
+/* =====================================================
+   Stijl Standard Layout Layer
+   Scoped Layout System
+   ===================================================== */
+
+/* tests */
+body {
+  background: hotpink !important;
+}
+
+/* Override the mkdocs container width, remove the centering margin. */
+.md-grid {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Page column layout */
+.md-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main region stretches between header and footer */
+.md-main {
+  flex: 1;
+  padding: 0;
+  display: flex;
+}
+
+/* Remove centering constraints */
+.md-main__inner {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove default content padding */
+/* Content container participates in flex layout */
+.md-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* Inner wrapper becomes vertical flex stack */
+.md-content__inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.md-content__inner > h1:first-child {
+  display: none;
+}
+
+.md-main__inner,
+.md-content,
+.md-content__inner {
+  min-height: 0;
+}
+
+/* replaces wrapper from standard example */
+/* Mondrian grid canvas */
+/* =====================================================
+   Stijl Standard Layout Layer
+   ===================================================== */
+
+/* 1) Base canvas */
+.uc-stijl-grid {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--uc-line, 10px);
+  padding: var(--uc-line, 10px);
+  background: var(--uc-color-black, #000);
+  grid-auto-rows: 1fr;
+}
+
+/* 2) Layout modes (must come after base canvas) */
+.uc-layout--viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* viewport grid */
+
+/* -----------------------------------------------------
+   Generic Block Container
+   ----------------------------------------------------- */
+
+.uc-block {
+  padding: var(--uc-space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--uc-color-surface);
+  color: var(--uc-color-text-primary);
+}
+
+
+/* -----------------------------------------------------
+   Color Variants
+   ----------------------------------------------------- */
+
+.uc-block--red {
+  background: var(--uc-color-red);
+  color: var(--uc-color-text-inverse);
+}
+
+.uc-block--blue {
+  background: var(--uc-color-blue);
+  color: var(--uc-color-text-inverse);
+}
+
+.uc-block--yellow {
+  background: var(--uc-color-yellow);
+  color: var(--uc-color-text-primary);
+}
+
+.uc-block--white {
+  background: var(--uc-color-white);
+  color: var(--uc-color-text-primary);
+}
+
+/* -----------------------------------------------------
+   Height Variants
+   ----------------------------------------------------- */
+
+.uc-block--sm {
+  min-height: 150px;
+}
+
+.uc-block--md {
+  min-height: 250px;
+}
+
+.uc-block--lg {
+  min-height: 400px;
+}
+
+.uc-block--xl {
+  min-height: 600px;
+}
+
+
+/* -----------------------------------------------------
+   Grid Span Utilities (Desktop Default)
+   ----------------------------------------------------- */
+
+.uc-span-1 { grid-column: span 1; }
+.uc-span-2 { grid-column: span 2; }
+.uc-span-3 { grid-column: span 3; }
+.uc-span-4 { grid-column: span 4; }
+.uc-span-5 { grid-column: span 5; }
+.uc-span-6 { grid-column: span 6; }
+
+
+
+
+/* -----------------------------------------------------
+   Defensive Safety Notes
+   ----------------------------------------------------- */
+
+/*
+  - Only adjust Material layout containers for integration.
+  - Do not visually style Material UI components.
+  - Never modify global body or html
+  - Never alter navigation containers
+  - Never rewrite Material structural layout
+*/

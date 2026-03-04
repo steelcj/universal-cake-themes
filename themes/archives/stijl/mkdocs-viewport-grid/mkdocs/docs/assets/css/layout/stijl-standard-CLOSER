@@ -1,0 +1,219 @@
+/* =====================================================
+   Stijl Standard Layout Layer
+   Scoped Layout System
+   ===================================================== */
+
+/* tests */
+body {
+  background: hotpink !important;
+}
+/* -----------------------------------------------------
+   Root Layout Container
+   Use only when explicitly wrapping content:
+   <div class="uc-stijl-grid">...</div>
+   ----------------------------------------------------- */
+
+.md-grid {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+
+.md-main {
+  padding: 0 !important;
+}
+
+/*.md-main__inner {
+  margin: 0 !important;
+  padding: 0 !important;
+}*/
+
+.md-main__inner {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;   /* critical */
+}
+
+.md-content {
+  margin: 0 !important;
+}
+
+.md-content__inner {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* -----------------------------------------------------
+Material uses max-width + margin auto for centering.
+ Removing max-width removes centering.
+   -----------------------------------------------------
+.md-container {
+  max-width: 100%;
+  padding: 0;
+}
+
+.md-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}*/
+
+.md-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.md-main {
+  flex: 1;
+}
+
+/*  ----------------------------------------------------
+    True Edge-to-Edge (Viewport Width)
+    ----------------------------------------------------
+.uc-stijl-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--uc-grid-gap);
+  padding: var(--uc-space-xl);
+  background: var(--uc-color-black);
+  min-height: 60vh;
+  width: 100%;
+}
+*/
+
+.uc-stijl-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--uc-grid-gap);
+  padding: var(--uc-space-xl);
+  background: var(--uc-color-black);
+
+/*  min-height: calc(100vh - var(--md-header-height, 64px)); */
+  min-height: calc(100vh - 64px - 48px);
+  box-sizing: border-box;
+}
+
+/* -----------------------------------------------------
+   Generic Block Container
+   ----------------------------------------------------- */
+
+.uc-block {
+  padding: var(--uc-space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--uc-color-surface);
+  color: var(--uc-color-text-primary);
+}
+
+
+/* -----------------------------------------------------
+   Color Variants
+   ----------------------------------------------------- */
+
+.uc-block--red {
+  background: var(--uc-color-red);
+  color: var(--uc-color-text-inverse);
+}
+
+.uc-block--blue {
+  background: var(--uc-color-blue);
+  color: var(--uc-color-text-inverse);
+}
+
+.uc-block--yellow {
+  background: var(--uc-color-yellow);
+  color: var(--uc-color-text-primary);
+}
+
+.uc-block--white {
+  background: var(--uc-color-white);
+  color: var(--uc-color-text-primary);
+}
+
+/* -----------------------------------------------------
+   Height Variants
+   ----------------------------------------------------- */
+
+.uc-block--sm {
+  min-height: 150px;
+}
+
+.uc-block--md {
+  min-height: 250px;
+}
+
+.uc-block--lg {
+  min-height: 400px;
+}
+
+.uc-block--xl {
+  min-height: 600px;
+}
+
+
+/* -----------------------------------------------------
+   Grid Span Utilities (Desktop Default)
+   ----------------------------------------------------- */
+
+.uc-span-1 { grid-column: span 1; }
+.uc-span-2 { grid-column: span 2; }
+.uc-span-3 { grid-column: span 3; }
+.uc-span-4 { grid-column: span 4; }
+.uc-span-5 { grid-column: span 5; }
+.uc-span-6 { grid-column: span 6; }
+
+
+/* -----------------------------------------------------
+   Tablet Breakpoint
+   ----------------------------------------------------- */
+
+@media (max-width: 1024px) {
+
+  .uc-stijl-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .uc-span-5,
+  .uc-span-6 {
+    grid-column: span 4;
+  }
+
+}
+
+
+/* -----------------------------------------------------
+   Mobile Breakpoint
+   ----------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+  .uc-stijl-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .uc-span-1,
+  .uc-span-2,
+  .uc-span-3,
+  .uc-span-4,
+  .uc-span-5,
+  .uc-span-6 {
+    grid-column: span 1;
+  }
+
+}
+
+
+/* -----------------------------------------------------
+   Defensive Safety Notes
+   ----------------------------------------------------- */
+
+/*
+  - Never style .md-* classes here
+  - Never modify global body or html
+  - Never alter navigation containers
+  - Never rewrite Material structural layout
+*/

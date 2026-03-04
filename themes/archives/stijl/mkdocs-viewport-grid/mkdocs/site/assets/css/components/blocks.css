@@ -1,0 +1,83 @@
+/* =====================================================
+   Stijl Standard Component Layer
+   Reusable UI Components
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   Card Component
+   ----------------------------------------------------- */
+
+.uc-card {
+  background: var(--uc-color-surface);
+  color: var(--uc-color-text-primary);
+  padding: var(--uc-space-lg);
+  border-radius: var(--uc-radius-md);
+  box-shadow: var(--uc-shadow-sm);
+  transition: box-shadow var(--uc-transition-normal);
+}
+
+.uc-card:hover {
+  box-shadow: var(--uc-shadow-md);
+}
+
+
+/* -----------------------------------------------------
+   Callout Block
+   ----------------------------------------------------- */
+
+.uc-callout {
+  padding: var(--uc-space-lg);
+  border-left: 6px solid var(--uc-color-blue);
+  background: var(--uc-color-bg-primary);
+}
+
+.uc-callout--warning {
+  border-left-color: var(--uc-color-red);
+}
+
+.uc-callout--highlight {
+  border-left-color: var(--uc-color-yellow);
+}
+
+
+/* -----------------------------------------------------
+   Utility Spacing Classes
+   ----------------------------------------------------- */
+
+.uc-mt-lg { margin-top: var(--uc-space-lg); }
+.uc-mb-lg { margin-bottom: var(--uc-space-lg); }
+
+.uc-pt-lg { padding-top: var(--uc-space-lg); }
+.uc-pb-lg { padding-bottom: var(--uc-space-lg); }
+
+
+/* -----------------------------------------------------
+   Button Style (Non-Destructive)
+   ----------------------------------------------------- */
+
+.uc-button {
+  display: inline-block;
+  padding: var(--uc-space-sm) var(--uc-space-md);
+  border-radius: var(--uc-radius-sm);
+  background: var(--uc-color-blue);
+  color: var(--uc-color-text-inverse);
+  text-decoration: none;
+  transition: background var(--uc-transition-fast);
+}
+
+.uc-button:hover {
+  background: var(--uc-color-red);
+}
+
+
+/* -----------------------------------------------------
+   Defensive Safety Notes
+   ----------------------------------------------------- */
+
+/*
+  - Never override .md-button
+  - Never modify .md-typeset globally
+  - Never alter navigation or layout containers
+  - Never redefine Material utility classes
+*/

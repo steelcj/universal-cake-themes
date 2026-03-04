@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARt Site — De Stijl Composition</title>
+
+<style>
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --red:   #c00018;
+  --blue:  #003f8c;
+  --yellow:#e0b800;
+
+  --line: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ===== Grid Canvas ===== */
+
+.grid {
+  display: grid;
+  min-height: 100vh;
+
+  grid-auto-rows: minmax(100px, 1fr);
+
+  gap: var(--line);
+  padding: var(--line);
+}
+
+
+/* ===== Blocks ===== */
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 1.75rem;
+
+  /* Keeps blocks visually balanced */
+  min-height: 0;
+}
+
+.block h2 { margin-top: 0; }
+
+.block a {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: inherit;
+}
+
+.block a:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 4px;
+}
+
+/* ===== Colors ===== */
+
+.red    { background: var(--white); color: #000; }
+.yellow { background: var(--red); color: #fff; }
+.white  { background: var(--yellow); color: #000; }
+.blue   { background: var(--blue); color: #fff; }
+
+/* ===== Desktop Mondrian Layout ===== */
+
+.projects {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.areas {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.resources {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.archives {
+  grid-column: span 1;
+}
+
+.contact {
+  grid-column: span 2;
+}
+
+/* ===== Tablet ===== */
+
+@media (max-width: 1024px) and (min-width: 601px) {
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .areas,
+  .resources {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .archives,
+  .contact {
+    grid-column: span 1;
+  }
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 600px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .block {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<main class="grid">
+
+<section class="block red projects">
+<h2>Projects</h2>
+<p>Projects we have worked on.</p>
+<a href="#">View Current Projects</a>
+</section>
+
+<section class="block blue areas">
+<h2>Areas</h2>
+<p>Areas of expertise.</p>
+<a href="#">Explore</a>
+</section>
+
+<section class="block yellow resources">
+<h2>Resources</h2>
+<p>Free resources for similar work.</p>
+<a href="#">Learn More</a>
+</section>
+
+<section class="block white archives">
+<h2>Archives</h2>
+<p>See archives of our previous work.</p>
+<a href="#">Our History</a>
+</section>
+
+<section class="block red contact">
+<h2>Contact</h2>
+<p>Reach out to collaborate.</p>
+<a href="#">Get in Touch</a>
+</section>
+
+</main>
+
+</body>
+</html>

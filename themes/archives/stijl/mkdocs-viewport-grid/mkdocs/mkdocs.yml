@@ -1,0 +1,52 @@
+site_name: My Docs
+theme:
+  name: material
+#  features:
+#    - navigation.sections
+#    - navigation.tabs
+  hide:
+    - toc
+  palette:
+    scheme: default
+#  custom_dir: overrides/stijl-standard-mkdocs
+extra_css:
+  - assets/css/tokens/uc-base.css
+  - assets/css/layout/stijl-standard.css
+  - assets/css/components/blocks.css
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: false
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+          nav:
+            - "Homes": "index.md"
+#            - "Home": "home/index.md"
+#            - "Services": "services/index.md"
+#            - "Achievements": "achievements/index.md"
+#            - "Contact": "contact/index.md"
+#            - "Quote": "quote/index.md"
+#            - "News": "news/index.md"
+            - "About": "about/index.md"
+
+        - locale: fr
+          name: Français
+          build: true
+          nav:
+            - "Accueil": "index.md"
+#            - "Accueil": "accueil/index.md"
+#            - "Services": "services/index.md"
+#            - "Réalisations": "realisations/index.md"
+#            - "Contact": "contact/index.md"
+#            - "Soumission": "soumission/index.md"
+#            - "Actualités": "actualites/index.md"
+            - "À propos": "a_propos/index.md"
+#            - "À propos": "about/index.md"
+
