@@ -20,10 +20,6 @@ Each theme is a self-contained exploration of layout, visual language, and seman
 
 * [/docs/universalcake-theme-contribution-guide.md](./docs/universalcake-theme-contribution-guide.md)
 
-## 
-
----
-
 ## File system layout
 
 ```bash
@@ -35,9 +31,9 @@ universal-cake-themes/
 │   ├── theme-values-and-evaluation.md
 │   └── automated-verification-plan.md
 ├── themes/
-│   ├── calm-editorial-v2/
-│   ├── minimal-structured/
-│   └── experimental-grid/
+│   ├── archives/
+│   ├── stijl-standard/
+│   └── stijl-standard-index/ # index.md files, mkdocs testing
 ├── scripts/
 │   ├── generate-theme-skeleton.py
 │   └── theme-definition.yml
@@ -57,27 +53,15 @@ Themes are evaluated not only by visual appeal, but by:
 The goal is not novelty.  
 The goal is durable expression and utility.
 
----
-
-## Core Values -< move to VALUES.md
-
-UniversalCake themes aim to prioritize:
-
-- **Accessibility** — semantic HTML, visible focus states, keyboard navigation, WCAG AA contrast targets  
-- **Agnosticism** — functional across browsers, devices, and environments  
-- **Restraint** — minimal reliance on JavaScript and external frameworks  
-- **Portability** — themes should run locally without mandatory external resources  
-- **Transparency** — clear metadata and documentation  
-
----
-
-## universalcake-theme-metadata-guide.mdRepository Structure
+## Repository Structure
 
 All themes live inside:
 
 ```bash
 themes/
 ```
+
+### stijl-standard example
 
 Each theme directory contains everything required to understand and run that theme, typically including:
 
@@ -87,6 +71,27 @@ index.html
 theme.yml
 css/
 assets/
+```
+
+### stijl-standard-index example
+
+This directory contains index.md files that "hold" the entire theme. This is very useful time saving method for developing themes and seeing results in a specific static site generator such as mkdocs. Then once all theme details are worked out in the index.md the theme can be converted into the target static site generator architecture
+
+#### Target Architecture Breakout Example for an mkdocs compatible theme:
+
+stijl-standard-index/ might contain:
+
+```bash
+docs/
+  index.md # The "entire" theme can be tested and tweaked here
+  assets/
+    css/
+      stijl.css # the completed theme css goes here
+overrides/ # completed theme mkdocs customizations go here
+  main.html
+  partials/
+    mondrian-home.html
+mkdocs.yml
 ```
 
 ## Generating a Theme Skeleton

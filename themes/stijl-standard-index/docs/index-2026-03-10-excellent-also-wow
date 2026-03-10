@@ -13,59 +13,16 @@ hide:
 
 <style>
 
-/* =====================================================
-   Mondrian / De Stijl Layout System
-   =====================================================
-
-   This layout scales from a single variable:
-
-      --block-unit
-
-   Adjust this value to control the overall size
-   of the composition.
-
-   Example presets:
-
-      Compact:
-      --block-unit: clamp(30px, 6vh, 50px);
-
-      Balanced (default):
-      --block-unit: clamp(40px, 7vh, 70px);
-
-      Large:
-      --block-unit: clamp(50px, 9vh, 90px);
-
-      Extra Large:
-      --block-unit: clamp(60px, 11vh, 110px);
-
-   The following elements scale automatically:
-
-      • block heights
-      • grid row height
-      • line thickness
-      • block padding
-      • typography
-
-   ===================================================== */
-
 :root {
 
-  /* Master scale variable */
-
-  --block-unit: clamp(60px, 11vh, 110px);
-
-  /* Height ratios */
+  --block-unit: clamp(40px, 7vh, 70px);
 
   --block-sm: calc(var(--block-unit) * 1);
   --block-md: calc(var(--block-unit) * 1.67);
   --block-lg: calc(var(--block-unit) * 2.5);
   --block-xl: calc(var(--block-unit) * 3.33);
 
-  /* Mondrian grid line thickness */
-
   --line: calc(var(--block-unit) * 0.15);
-
-  /* Color palette */
 
   --black: #000000;
   --white: #ffffff;
@@ -77,10 +34,7 @@ hide:
 
 * { box-sizing: border-box; }
 
-
-/* =====================================================
-   Remove MkDocs Layout Constraints
-   ===================================================== */
+/* Remove MkDocs spacing around content */
 
 .md-grid {
   max-width: 100% !important;
@@ -99,160 +53,112 @@ hide:
   padding: 0 !important;
 }
 
+/* -----------------------------------------
+   Hides auto page title
+   ----------------------------------------- */
 .md-content__inner > h1:first-child {
   display: none;
 }
 
 
-/* =====================================================
-   Mondrian Grid Canvas
-   ===================================================== */
+/* ===== Grid Canvas ===== */
 
 .grid {
-
   display: grid;
 
-  /* grid-template-columns: repeat(4, 1fr); */
-  grid-template-columns: 1.2fr 1fr 1fr 0.8fr;
+  gap: var(--line);
+  padding: calc(var(--line) * 1.3);
+
+  grid-template-columns: repeat(4, 1fr);
 
   grid-auto-rows: minmax(var(--block-unit), auto);
 
-  gap: var(--line);
-
-  /* Slightly thicker outer frame */
-
-  padding: calc(var(--line) * 1.3);
-
   background: var(--black);
-
 }
 
-
-/* =====================================================
-   Block Layout
-   ===================================================== */
+/* ===== Blocks ===== */
 
 .block {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   padding: calc(var(--block-unit) * 0.12);
+/*  padding: calc(var(--block-unit) * 0.12);
+  padding: 0.6rem; */
 
   min-height: 0;
-
 }
 
-
-/* =====================================================
-   Typography
-   ===================================================== */
+/* Typography polish */
 
 .block h2 {
-
   margin: 0 0 0.2rem 0;
-
   font-size: calc(var(--block-unit) * 0.35);
-
   font-weight: 600;
-
   letter-spacing: .02em;
-
 }
 
 .block p {
-
   margin: 0;
-
   font-size: calc(var(--block-unit) * 0.28);
-
 }
 
 .block a {
-
   margin-top: 0.3rem;
-
   font-weight: bold;
-
   text-decoration: underline;
-
   color: inherit;
-
 }
 
 .block a:focus-visible {
-
   outline: 4px solid #fff;
-
   outline-offset: 4px;
-
 }
 
-
-/* =====================================================
-   Block Height Utilities
-   ===================================================== */
+/* ===== Mondrian Height Utilities ===== */
 
 .h-sm { min-height: var(--block-sm); }
 .h-md { min-height: var(--block-md); }
 .h-lg { min-height: var(--block-lg); }
 .h-xl { min-height: var(--block-xl); }
 
-
-/* =====================================================
-   Mondrian Colors
-   ===================================================== */
+/* ===== Colors ===== */
 
 .red    { background: var(--white); color: #000; }
-.yellow { background: var(--red);   color: #fff; }
-.white  { background: var(--yellow);color: #000; }
-.blue   { background: var(--blue);  color: #fff; }
+.yellow { background: var(--red); color: #fff; }
+.white  { background: var(--yellow); color: #000; }
+.blue   { background: var(--blue); color: #fff; }
 
-
-/* =====================================================
-   Desktop Composition
-   ===================================================== */
+/* ===== Desktop Mondrian Layout ===== */
 
 .projects {
-
   grid-column: span 3;
   grid-row: span 1;
-  align-items: flex-start;
 
+  /* Mondrian composition anchor */
+  align-items: flex-start;
 }
 
 .areas {
-
   grid-column: span 1;
   grid-row: span 2;
-
 }
 
 .resources {
-
   grid-column: span 2;
   grid-row: span 2;
-/*  align-self: start; */
-
 }
 
 .archives {
-
   grid-column: span 1;
-
 }
 
 .contact {
-
   grid-column: span 2;
-
 }
 
-
-/* =====================================================
-   Tablet Layout
-   ===================================================== */
+/* ===== Tablet ===== */
 
 @media (max-width: 1024px) {
 
@@ -272,10 +178,7 @@ hide:
 
 }
 
-
-/* =====================================================
-   Mobile Layout
-   ===================================================== */
+/* ===== Mobile ===== */
 
 @media (max-width: 768px) {
 
@@ -292,7 +195,6 @@ hide:
   }
 
 }
-
 </style>
 </head>
 
@@ -327,7 +229,7 @@ hide:
 <section class="block red contact h-md">
 <h2>About Us</h2>
 <p>Information about who we are and what we do.</p>
-<a href="./about/index.html">Who We Are</a>
+<a href="#">Get in Touch</a>
 </section>
 
 </main>

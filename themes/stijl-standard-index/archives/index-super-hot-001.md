@@ -4,33 +4,15 @@ hide:
   - navigation
   - title
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inclusive Gym — De Stijl Composition</title>
 
 <style>
-
-.resources {
-  min-height: 20px !important;
-}
-.block {
-  padding: 0;
-}
-
-.block p,
-.block h2,
-.block a {
-  margin: 0;
-}
-
 :root {
-  /* Base Mondrian unit */
-  --m-unit: 60px;
-
-  /* Derived block heights */
-  --m-sm: calc(var(--m-unit) * 1);
-  --m-md: calc(var(--m-unit) * 1.7);
-  --m-lg: calc(var(--m-unit) * 2.5);
-  --m-xl: calc(var(--m-unit) * 3.4);
-  
   --black: #000000;
   --white: #ffffff;
   --red:   #c00018;
@@ -84,7 +66,7 @@ hide:
   grid-template-columns: repeat(4, 1fr);
 
   /* Slightly taller Mondrian rhythm */
-  grid-auto-rows: minmax(var(--m-sm), auto);  
+  grid-auto-rows: minmax(150px, 1fr);
 
   background: var(--black);
 }
@@ -122,10 +104,10 @@ hide:
 }
 /* ===== Mondrian Height Utilities ===== */
 
-.h-sm { min-height: var(--m-sm); }
-.h-md { min-height: var(--m-md); }
-.h-lg { min-height: var(--m-lg); }
-.h-xl { min-height: var(--m-xl); }
+.h-sm  { min-height: 140px; }
+.h-md  { min-height: 220px; }
+.h-lg  { min-height: 320px; }
+.h-xl  { min-height: 420px; }
 
 /* ===== Colors ===== */
 
@@ -238,3 +220,5 @@ hide:
 
 </main>
 
+</body>
+</html>
